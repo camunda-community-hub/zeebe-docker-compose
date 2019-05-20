@@ -90,7 +90,7 @@ The Operate profiles create persistent volumes. Sometimes you want to flush the 
 docker volume ls
 ```
 
-### Delete a Persistent Volume
+### Delete Persistent Volumes
 
 Stop the running containers first using `docker-compose down` in the directory of the profile you started. Then:
 
