@@ -8,7 +8,7 @@
 
 For more information on using Zeebe and Operate, consult the Quickstart Guide in the [Zeebe docs](https://docs.zeebe.io).
 
-The `docker-compose.yml` files in this repository can be used to start a Zeebe broker; optionally with Simple Monitor, or with Operate, along with the Elasticsearch and Kibana containers that Operate needs.
+The `docker-compose.yml` files in this repository can be used to start a single Zeebe broker; optionally with Simple Monitor, or with Operate, along with the Elasticsearch and Kibana containers that Operate needs.
 
 ## Versions
 
