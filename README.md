@@ -37,11 +37,15 @@ The containers expose the following services:
 
 - [Docker](https://www.docker.com)
 
+## Recommended
+
+To visually inspect and manage running containers and persistent volumes, you can use [Portainer](https://portainer.io).
+
 ## Start the Containers in the Foreground
 
 Running the containers in the foreground will tail the output from each of the containers in your console, allowing you to inspect it.
 
-Run the following command in this directory:
+Run the following command in the directory of the profile that you want to start:
 
 ```
 docker-compose up
@@ -51,7 +55,7 @@ docker-compose up
 
 Closing the terminal (including terminating an ssh connection) or hitting Ctrl-C will stop the containers.
 
-To remove the stopped containers, run the following the command in this directory:
+To remove the stopped containers, run the following the command in the directory of the profile that you started:
 
 ```bash
 docker-compose down
@@ -74,6 +78,27 @@ docker-compose down
 ```
 
 This will stop the containers and remove them.
+
+
+## Removing Persistent Data
+
+The Operate profiles create persistent volumes. Sometimes you want to flush the data from previous starts. To do this you need to delete the `zeebe_data` and `zeebe_elasticsearch_data` volumes. They are prefixed by the profile name. You can use [Portainer](https://portainer.io) to do this, or using the command line:
+
+### List Persistent Volumes
+
+```
+docker volume ls
+```
+
+### Delete a Persistent Volume
+
+Stop the running containers first using `docker-compose down` in the directory of the profile you started. Then:
+
+```
+# Example for the operate profile
+docker volume rm operate_zeebe_data
+docker volume rm operate_zeebe_elasticsearch_data
+```
 
 ## Running with Simple Monitor
 
