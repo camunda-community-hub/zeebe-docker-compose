@@ -2,7 +2,7 @@
 
 [Zeebe](https://zeebe.io) is a workflow engine for micro-services orchestration engine.
 
-Operate is an operations tool for monitoring and troubleshooting live workflow instances in Zeebe.
+[Operate](https://zeebe.io/blog/2019/04/announcing-operate-visibility-and-problem-solving/) is an operations tool for monitoring and troubleshooting live workflow instances in Zeebe.
 
 [Simple Monitor](https://github.com/zeebe-io/zeebe-simple-monitor) is an unofficial development monitoring tool. This should not be used in production as it has a performance impact on the broker.
 
