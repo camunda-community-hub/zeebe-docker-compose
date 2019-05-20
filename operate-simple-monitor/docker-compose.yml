@@ -1,0 +1,82 @@
+version: "2"
+
+volumes:
+  zeebe_data:
+  zeebe_elasticsearch_data:
+
+networks:
+  zeebe_network:
+    driver: bridge
+
+services:
+  db:
+    image: oscarfonts/h2
+    container_name: zeebe_db
+    ports:
+      - "1521:1521"
+      - "81:81"
+    networks:
+      - zeebe_network
+  zeebe:
+    container_name: zeebe_broker
+    image: camunda/zeebe:0.17.0
+    environment:
+      - ZEEBE_LOG_LEVEL=debug
+      - SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:h2:tcp://db:1521/zeebe-monitor
+    ports:
+      - "26500:26500"
+      - "5701:5701"
+    volumes:
+      - ../lib/zeebe-simple-monitor-exporter-0.14.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar
+      - ../lib/zeebe-hazelcast-exporter-0.2.0.jar:/usr/local/zeebe/lib/zeebe-hazelcast-exporter.jar
+      - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
+    networks:
+      - zeebe_network
+    depends_on:
+      - db
+  monitor:
+    container_name: zeebe_monitor
+    image: camunda/zeebe-simple-monitor:latest
+    environment:
+      - spring.datasource.url=jdbc:h2:tcp://db:1521/zeebe-monitor
+      - io.zeebe.monitor.connectionString=zeebe:26500
+      - io.zeebe.monitor.hazelcast.connection=zeebe:5701
+    ports:
+      - "8082:8080"
+    depends_on:
+      - db
+      - zeebe
+    restart: always
+    networks:
+      - zeebe_network
+  operate:
+    container_name: operate
+    image: camunda/operate:1.0.0-alpha10
+    ports:
+    - "8080:8080"
+    volumes:
+    - ../lib/application.yml:/usr/local/operate/config/application.yml
+    networks:
+    - zeebe_network
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.7.1
+    ports:
+        - "9200:9200"
+    environment:
+        - discovery.type=single-node
+        - cluster.name=elasticsearch
+        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+        - zeebe_elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+        - zeebe_network
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana-oss:6.7.1
+    ports:
+    - "5601:5601"
+    networks:
+    - zeebe_network
+
+
