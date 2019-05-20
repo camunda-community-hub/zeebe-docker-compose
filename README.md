@@ -1,12 +1,18 @@
 # Zeebe + Operate in Docker
 
-[Zeebe](https://zeebe.io) is a workflow engine for micro-services orchestration engine.
+This repository contains configuration files to setup an environment to
+develop with [Zeebe]. It is the recommend way for developing and is maintained
+by the Zeebe team itself.
 
-[Operate](https://zeebe.io/blog/2019/04/announcing-operate-visibility-and-problem-solving/) is an operations tool for monitoring and troubleshooting live workflow instances in Zeebe.
+The configurations manage the following Zeebe components:
 
-[Simple Monitor](https://github.com/zeebe-io/zeebe-simple-monitor) is an unofficial development monitoring tool. This should not be used in production as it has a performance impact on the broker.
+- [Zeebe] is a workflow engine for micro-services orchestration.
 
-For more information on using Zeebe and Operate, consult the Quickstart Guide in the [Zeebe docs](https://docs.zeebe.io).
+- [Operate](https://zeebe.io/blog/2019/04/announcing-operate-visibility-and-problem-solving/) is an operations tool for monitoring and troubleshooting live workflow instances in Zeebe.
+
+- [Simple Monitor](https://github.com/zeebe-io/zeebe-simple-monitor) is a **community maintained** monitoring tool for development purpose. This should **not** be used in production as it has a performance impact on the broker.
+
+For more information on using Zeebe and Operate, consult the Quickstart Guide in the [Zeebe docs](https://docs.zeebe.io/getting-started/README.html).
 
 The `docker-compose.yml` files in this repository can be used to start a single Zeebe broker; optionally with Simple Monitor, or with Operate, along with the Elasticsearch and Kibana containers that Operate needs.
 
@@ -18,10 +24,10 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 
 # Profiles
 
-* `broker-only` - a single node Zeebe broker
-* `operate` - a single node Zeebe broker with Operate
-* `operate-simple-monitor` - a single node Zeebe broker with Operate and Simple Monitor
-* `simple-monitor` -  a single node Zeebe broker with Simple Monitor
+* [`broker-only`](broker-only/docker-compose.yml) - a single node Zeebe broker
+* [`operate`](operate/docker-compose.yml) - a single node Zeebe broker with Operate
+* [`simple-monitor`](simple-monitor/docker-compose.yml) -  a single node Zeebe broker with Simple Monitor
+* [`operate-simple-monitor`](operate-simple-monitor/docker-compose.yml) - a single node Zeebe broker with Operate and Simple Monitor
 
 ## Services / Ports
 
@@ -29,13 +35,14 @@ The containers expose the following services:
 
 - Zeebe broker - port 26500
 - Operate - web interface http://localhost:8080 (login: demo/demo)
-- ElasticSearch - port 9200
-- Kibana - port 5601
+- ElasticSearch - port https://localhost:9200
+- Kibana - port https://localhost:5601
 - Simple Monitor - web interface http://localhost:8082
 
 ## Prerequisites
 
-- [Docker](https://www.docker.com)
+- [Docker](https://docs.docker.com/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Recommended
 
@@ -48,6 +55,8 @@ Running the containers in the foreground will tail the output from each of the c
 Run the following command in the directory of the profile that you want to start:
 
 ```
+# change to directory of the profile to start, i.e
+# cd operate/
 docker-compose up
 ```
 
@@ -77,8 +86,16 @@ Run the following command in this directory:
 docker-compose down
 ```
 
-This will stop the containers and remove them.
+This will stop the containers and remove them, but will keep the persistent
+data folders of the containers. Therefore if you recreate the containers they
+will startup with your existing data volumes.
 
+In case you want to clean also the persistent data use the following command
+instead:
+
+```bash
+docker-compose down -v
+```
 
 ## Removing Persistent Data
 
@@ -105,3 +122,6 @@ docker volume rm operate_zeebe_elasticsearch_data
 One thing that Operate doesn't have is inspection of messages. This can be useful when developing and debugging.
 
 The `operate-simple-monitor` folder contains a docker-compose file that will start Operate _and_ Simple Monitor. Simple Monitor will be running on [http://localhost:8082](http://localhost:8082).
+
+
+[Zeebe]: https://zeebe.io
