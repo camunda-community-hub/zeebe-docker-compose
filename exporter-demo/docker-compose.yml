@@ -1,0 +1,25 @@
+version: "2"
+
+networks:
+  zeebe_network:
+    driver: bridge
+
+services:
+  zeebe:
+    container_name: zeebe_broker
+    image: camunda/zeebe:0.17.0
+    environment:
+      - ZEEBE_LOG_LEVEL=debug
+    ports:
+      - "26500:26500"
+      - "5701:5701"
+    volumes:
+#      - ../lib/ZeebeExporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZeebeExporter.jar
+      - ../lib/zeebe-exporter-demo-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZBExporter.jar
+      - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
+    networks:
+      - zeebe_network
+
+
+
+
