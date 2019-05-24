@@ -31,6 +31,11 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 * [`operate-simple-monitor`](operate-simple-monitor/docker-compose.yml) - a single node Zeebe broker with Operate and Simple Monitor
 * [`simple-monitor`](simple-monitor/docker-compose.yml) -  a single node Zeebe broker with Simple Monitor
 
+# Utilities
+
+* [`bin/zbctl*`](bin) - cli binary to interact with the broker
+* [`bpmn/diagram_1.bpmn](bpmn) - example diagram to deploy to the broker
+
 ## Services / Ports
 
 The containers expose the following services:
