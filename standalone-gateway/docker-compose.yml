@@ -11,8 +11,10 @@ services:
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_STANDALONE_GATEWAY=true
+      - ZEEBE_GATEWAY_CONTACT_POINT=node0:26501
     ports:
       - "26500:26500"
+      - "26499:26499"
     volumes:
     #   - ../lib/ZeebeExporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZeebeExporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
@@ -20,34 +22,29 @@ services:
       - zeebe_network
   node0:
     container_name: zeebe_broker_1
-    image: camunda/zeebe:0.17.0
+    image: camunda/zeebe:SNAPSHOT
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_NODE_ID=0
       - ZEEBE_PARTITIONS_COUNT=2
       - ZEEBE_REPLICATION_FACTOR=3
       - ZEEBE_CLUSTER_SIZE=3
-    # ports:
-    #   - "26500:26500"
+      - ZEEBE_CONTACT_POINTS=node0:26505
     volumes:
-      - ../lib/ZeebeExporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZeebeExporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
   node1:
     container_name: zeebe_broker_2
-    image: camunda/zeebe:0.17.0
+    image: camunda/zeebe:SNAPSHOT
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_NODE_ID=1
       - ZEEBE_PARTITIONS_COUNT=2
       - ZEEBE_REPLICATION_FACTOR=3
       - ZEEBE_CLUSTER_SIZE=3
-    # ports:
-    #   - "26500:26500"
-    #   - "5701:5701"
+      - ZEEBE_CONTACT_POINTS=node0:26505
     volumes:
-      - ../lib/ZeebeExporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZeebeExporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
@@ -55,18 +52,15 @@ services:
       - node0
   node2:
     container_name: zeebe_broker_3
-    image: camunda/zeebe:0.17.0
+    image: camunda/zeebe:SNAPSHOT
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_NODE_ID=2
       - ZEEBE_PARTITIONS_COUNT=2
       - ZEEBE_REPLICATION_FACTOR=3
       - ZEEBE_CLUSTER_SIZE=3
-    # ports:
-    #   - "26500:26500"
-    #   - "5701:5701"
+      - ZEEBE_CONTACT_POINTS=node0:26505
     volumes:
-      - ../lib/ZeebeExporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZeebeExporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network

@@ -17,7 +17,6 @@ services:
     ports:
       - "26500:26500"
     volumes:
-      - ../lib/ZeebeExporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZeebeExporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
@@ -34,7 +33,6 @@ services:
     #   - "26500:26500"
     #   - "5701:5701"
     volumes:
-      - ../lib/ZeebeExporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZeebeExporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
@@ -53,7 +51,6 @@ services:
     #   - "26500:26500"
     #   - "5701:5701"
     volumes:
-      - ../lib/ZeebeExporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZeebeExporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
