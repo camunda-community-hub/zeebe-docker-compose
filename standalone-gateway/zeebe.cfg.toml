@@ -291,7 +291,7 @@ initialContactPoints = ["node0:26502"]
 #  delay = 5
 #  size = 1_000
 
-# [[exporters]]
-# id = "ghetto"
-# className = "io.magikcraft.ZeebeExporter.GhettoExporter"
+[[exporters]]
+id = "ghetto"
+className = "io.magikcraft.ZeebeExporter.GhettoExporter"
 
