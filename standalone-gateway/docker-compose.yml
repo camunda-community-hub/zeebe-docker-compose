@@ -11,11 +11,9 @@ services:
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_STANDALONE_GATEWAY=true
-      - ZEEBE_GATEWAY_CONTACT_POINT=node0:26501
-      - ZEEBE_CONTACT_POINTS=node0:26505
+      - ZEEBE_GATEWAY_CONTACT_POINT=node0:26505
     ports:
       - "26500:26500"
-      - "26499:26499"
     volumes:
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
