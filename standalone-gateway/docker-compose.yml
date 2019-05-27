@@ -12,6 +12,8 @@ services:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_STANDALONE_GATEWAY=true
       - ZEEBE_GATEWAY_CONTACT_POINT=node0:26505
+      - ZEEBE_GATEWAY_CLUSTER_PORT=26505
+      - ZEEBE_GATEWAY_CLUSTER_HOST=gateway
     ports:
       - "26500:26500"
     volumes:
