@@ -293,4 +293,4 @@
 
 [[exporters]]
 id = "demo"
-className = "io.zeebe.DemoExporter"
+className = "io.zeebe.EventStoreExporter"

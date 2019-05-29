@@ -7,19 +7,30 @@ networks:
 services:
   zeebe:
     container_name: zeebe_broker
-    image: camunda/zeebe:0.17.0
+    image: camunda/zeebe:SNAPSHOT
     environment:
       - ZEEBE_LOG_LEVEL=debug
+      - EVENT_STORE_EXPORTER_URL=http://eventstore:2113
     ports:
       - "26500:26500"
       - "5701:5701"
     volumes:
-#      - ../lib/ZeebeExporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZeebeExporter.jar
-      - ../lib/zeebe-exporter-demo-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZBExporter.jar
+      - ../lib/zeebe-eventstore-exporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-eventstore-exporter.jar
+      # Uncomment the following line to enable the demo console exporter
+#      - ../lib/zeebe-exporter-demo-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-exporter-demo.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
-
+    depends_on:
+      - eventstore
+  eventstore:
+    container_name: eventstore
+    image: eventstore/eventstore
+    ports:
+      - "2113:2113"
+      - "1113:1113"
+    networks:
+      - zeebe_network
 
 
 
