@@ -292,5 +292,5 @@
 #  size = 1_000
 
 [[exporters]]
-id = "demo"
+id = "eventstore"
 className = "io.zeebe.EventStoreExporter"

@@ -11,6 +11,10 @@ services:
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - EVENT_STORE_EXPORTER_URL=http://eventstore:2113
+      - EVENT_STORE_EXPORTER_BATCH_TIME_MILLI=300
+      - EVENT_STORE_EXPORTER_BATCH_SIZE=100
+      - EVENT_STORE_EXPORTER_RETRY_TIME_MILLI=300
+      - EVENT_STORE_EXPORTER_STREAM_NAME=zeebe
     ports:
       - "26500:26500"
       - "5701:5701"
