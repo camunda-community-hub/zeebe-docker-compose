@@ -13,15 +13,11 @@ services:
       - EVENT_STORE_EXPORTER_URL=http://eventstore:2113
       - EVENT_STORE_EXPORTER_BATCH_TIME_MILLI=300
       - EVENT_STORE_EXPORTER_BATCH_SIZE=100
-      - EVENT_STORE_EXPORTER_RETRY_TIME_MILLI=300
       - EVENT_STORE_EXPORTER_STREAM_NAME=zeebe
     ports:
       - "26500:26500"
-      - "5701:5701"
     volumes:
-      - ../lib/zeebe-eventstore-exporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-eventstore-exporter.jar
-      # Uncomment the following line to enable the demo console exporter
-#      - ../lib/zeebe-exporter-demo-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-exporter-demo.jar
+      - ./zeebe-eventstore-exporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-eventstore-exporter-1.0-SNAPSHOT.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
