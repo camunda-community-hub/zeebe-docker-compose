@@ -8,8 +8,27 @@ The Event Store exporter batches up events to export and sends them every 300ms 
 
 You can access the Event Store web interface at [http://localhost:2113](http://localhost:2113). The credentials to log in are admin / changeit.
 
-## Demo Exporter (Minimal Example)
+## Push Worker
 
-It also contains a commented out configuration for the demo exporter - one that logs all events to the console.
+This branch contains an exporter that exports only job activation, job time out, and job failure events.
 
-The demo exporter is the minimal possible exporter. The source code is available [here](https://github.com/jwulf/zeebe-exporter-demo).
+Start the broker and Event Store:
+
+```
+docker-compose up
+```
+
+Now deploy the test workflow:
+
+```
+./bin/zbctl.darwin deploy ./bpmn/test-workflow.bpmn
+```
+
+And start a workflow instance:
+
+```
+./bin/zbctl.darwin create instance test-workflow
+```
+
+Now open the [Event Store database web interface](http://l:2113/web/index.html#/streams/zeebe), and examine the exported JSON records. They can be used to invoke the task worker for the appropriate task worker. See the [Zeebe and Fn Project Integrated](https://zeebe.io/blog/2019/04/zeebe-and-fn-project-integrated-a-proof-of-concept/) blog post for a description of how this architecture can be constructed.
+
