@@ -1,6 +1,6 @@
 # Event Store Exporter
 
-This profile starts the broker with the Event Store exporter [source code](https://github.com/jwulf/zeebe-eventstore-exporter).
+This profile starts the broker with the Event Store exporter [source code](https://github.com/jwulf/zeebe-eventstore-exporter/tree/push-worker).
 
 [Event Store](https://eventstore.org) is an open-source stream database that supports user-defined projections.
 
