@@ -18,7 +18,7 @@ The components that will be started with this profile:
 * Clone this repository:
 
 ```bash
-git clone https://github.comzeebe-io/zeebe-docker-compose
+git clone https://github.com/zeebe-io/zeebe-docker-compose
 ```
 
 ## Start the containers
@@ -56,6 +56,6 @@ To delete all persistent data:
 * Run the following command:
 
 ```bash
-docker volume rm zeebe_data
-docker volume rm zeebe_elasticsearch_data
+docker volume rm operate_zeebe_data
+docker volume rm operate_zeebe_elasticsearch_data
 ```
