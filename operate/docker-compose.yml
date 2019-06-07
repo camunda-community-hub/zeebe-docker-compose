@@ -9,7 +9,7 @@ volumes:
 
 services:
   zeebe:
-    image: camunda/zeebe:0.17.0
+    image: camunda/zeebe:0.18.0
     #    environment:
     #      - ZEEBE_LOG_LEVEL=debug
     ports:

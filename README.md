@@ -55,6 +55,15 @@ The containers expose the following services:
 
 To visually inspect and manage running containers and persistent volumes, you can use [Portainer](https://portainer.io).
 
+
+## Preparation
+
+Clone this repository to your local machine:
+
+```bash
+git clone https://github.com/zeebe-io/zeebe-docker-compose
+```
+
 ## Start the Containers in the Foreground
 
 Running the containers in the foreground will tail the output from each of the containers in your console, allowing you to inspect it.

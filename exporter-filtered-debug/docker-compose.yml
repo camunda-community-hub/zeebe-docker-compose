@@ -7,19 +7,13 @@ networks:
 services:
   zeebe:
     container_name: zeebe_broker
-    image: camunda/zeebe:0.17.0
+    image: camunda/zeebe:0.18.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
     ports:
       - "26500:26500"
-      - "5701:5701"
     volumes:
-#      - ../lib/ZeebeExporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZeebeExporter.jar
-      - ../lib/zeebe-exporter-demo-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/ZBExporter.jar
+      - ./zeebe-filtered-debug-exporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-filtered-debug-exporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
-
-
-
-
