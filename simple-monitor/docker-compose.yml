@@ -15,7 +15,7 @@ services:
       - zeebe_network
   zeebe:
     container_name: zeebe_broker
-    image: camunda/zeebe:0.17.0
+    image: camunda/zeebe:0.18.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:h2:tcp://db:1521/zeebe-monitor
