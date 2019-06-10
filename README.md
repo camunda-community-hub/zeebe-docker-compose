@@ -146,7 +146,10 @@ Windows can have issues mounting files into Linux containers, especially if you 
 You may see messages when starting, containing error messages similar to this:
 
 ```
-\\\"/mnt/sda1/var/lib/docker/overlay2/0392980b2b7921719aa63fe8f8f8a61ce6bb4957f1bdc986a4581615f0102a47/merged/usr/local/zeebe/conf/zeebe.cfg.toml\\\" caused \\\"not a directory\\\"\"": unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type'
+\\\"/mnt/sda1/var/lib/docker/overlay2/039...7/merged/usr/local/zeebe/conf/zeebe.cfg.toml\\\"
+caused \\\"not a directory\\\"\"": unknown:
+Are you trying to mount a directory onto a file (or vice-versa)?
+Check if the specified host path exists and is the expected type'
 ```
 
 See [this post in the Zeebe forum](https://forum.zeebe.io/t/docker-compose-operate-error/479/11) for a solution.
