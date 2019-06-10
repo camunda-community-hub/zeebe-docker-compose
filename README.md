@@ -56,7 +56,7 @@ The containers expose the following services:
 To visually inspect and manage running containers and persistent volumes, you can use [Portainer](https://portainer.io).
 
 
-## Preparation
+## Usage
 
 Clone this repository to your local machine:
 
