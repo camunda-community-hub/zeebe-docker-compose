@@ -139,5 +139,17 @@ One thing that Operate doesn't have is inspection of messages. This can be usefu
 
 The `operate-simple-monitor` folder contains a docker-compose file that will start Operate _and_ Simple Monitor. Simple Monitor will be running on [http://localhost:8082](http://localhost:8082).
 
+## Issues Running on Windows
+
+Windows can have issues mounting files into Linux containers, especially if you run these configurations from a location outside your home directory.
+
+You may see messages when starting, containing error messages similar to this:
+
+```
+\\\"/mnt/sda1/var/lib/docker/overlay2/0392980b2b7921719aa63fe8f8f8a61ce6bb4957f1bdc986a4581615f0102a47/merged/usr/local/zeebe/conf/zeebe.cfg.toml\\\" caused \\\"not a directory\\\"\"": unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type'
+```
+
+See [this post in the Zeebe forum](https://forum.zeebe.io/t/docker-compose-operate-error/479/11) for a solution.
+
 
 [Zeebe]: https://zeebe.io
