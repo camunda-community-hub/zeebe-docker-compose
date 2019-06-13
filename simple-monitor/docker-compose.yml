@@ -21,10 +21,9 @@ services:
       - SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:h2:tcp://db:1521/zeebe-monitor
     ports:
       - "26500:26500"
-      - "5701:5701"
     volumes:
-      - ../lib/zeebe-simple-monitor-exporter-0.14.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar
-      - ../lib/zeebe-hazelcast-exporter-0.2.0.jar:/usr/local/zeebe/lib/zeebe-hazelcast-exporter.jar
+      - ../lib/zeebe-simple-monitor-exporter-0.14.0.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar
+      - ../lib/zeebe-hazelcast-exporter-0.4.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-hazelcast-exporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network

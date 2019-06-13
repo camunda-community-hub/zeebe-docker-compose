@@ -14,7 +14,6 @@ services:
     #      - ZEEBE_LOG_LEVEL=debug
     ports:
       - "26500:26500"
-      - "26501:26501"
     volumes:
       - zeebe_data:/usr/local/zeebe/bin/data
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
@@ -23,7 +22,7 @@ services:
     networks:
       - zeebe_network
   operate:
-    image: camunda/operate:1.0.0-alpha10
+    image: camunda/operate:1.0.0-alpha11
     ports:
       - "8080:8080"
     volumes:
