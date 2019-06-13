@@ -27,8 +27,8 @@ services:
       - "26500:26500"
       - "5701:5701"
     volumes:
-      - ../lib/zeebe-simple-monitor-exporter-0.14.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar
-      - ../lib/zeebe-hazelcast-exporter-0.2.0.jar:/usr/local/zeebe/lib/zeebe-hazelcast-exporter.jar
+      - ../lib/zeebe-simple-monitor-exporter-0.14.0.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar
+      - ../lib/zeebe-hazelcast-exporter-0.4.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-hazelcast-exporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
@@ -51,7 +51,7 @@ services:
       - zeebe_network
   operate:
     container_name: operate
-    image: camunda/operate:1.0.0-alpha10
+    image: camunda/operate:1.0.0-alpha11
     ports:
     - "8080:8080"
     volumes:
