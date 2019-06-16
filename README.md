@@ -18,8 +18,8 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 
 ## Versions
 
-* Zeebe 0.17
-* Operate 1.0.0-alpha10
+* Zeebe 0.18
+* Operate 1.0.0-alpha11
 * Simple Monitor 0.14.0-SNAPSHOT
 
 # Profiles
@@ -111,6 +111,22 @@ instead:
 
 ```bash
 docker-compose down -v
+```
+
+## Deploy BPMN Files
+
+The `zbctl` binary is included to allow you to interact with the running broker. The binary is named:
+
+| Operating System |   zbctl binary   | 
+|:----------------:|:----------------:|
+|       Linux      | bin/zbctl        | 
+|       OS X       | bin/zbctl.darwin |
+|      Windows     | bin/zbctl.exe    | 
+
+
+```bash
+cd zeebe-docker-compose
+bin/zbctl deploy ../path/to/your-file.bpmn
 ```
 
 ## Removing Persistent Data
