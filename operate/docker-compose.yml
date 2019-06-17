@@ -15,7 +15,7 @@ services:
     ports:
       - "26500:26500"
     volumes:
-      - zeebe_data:/usr/local/zeebe/bin/data
+      - zeebe_data:/usr/local/zeebe/data
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     depends_on:
       - elasticsearch
