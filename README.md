@@ -155,6 +155,10 @@ One thing that Operate doesn't have is inspection of messages. This can be usefu
 
 The `operate-simple-monitor` folder contains a docker-compose file that will start Operate _and_ Simple Monitor. Simple Monitor will be running on [http://localhost:8082](http://localhost:8082).
 
+## Error messages during Simple Monitor startup
+
+During the startup of Simple Monitor, you may see error messages in the logs. This is caused by a race condition where the Simple Moniter starts before the exporter has created the database tables that it needs to run. You can ignore these error messages and the container will automatically restart until the needed database tables are created.
+
 ## Issues Running on Windows
 
 Windows can have issues mounting files into Linux containers, especially if you run these configurations from a location outside your home directory.
