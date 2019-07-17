@@ -9,11 +9,12 @@ volumes:
 
 services:
   zeebe:
-    image: camunda/zeebe:0.18.0
+    image: camunda/zeebe:0.19.0
     #    environment:
     #      - ZEEBE_LOG_LEVEL=debug
     ports:
       - "26500:26500"
+      - "9600:9600"
     volumes:
       - zeebe_data:/usr/local/zeebe/data
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
