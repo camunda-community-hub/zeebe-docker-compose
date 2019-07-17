@@ -19,7 +19,7 @@ services:
       - zeebe_network
   zeebe:
     container_name: zeebe_broker
-    image: camunda/zeebe:0.19.0
+    image: camunda/zeebe:0.20.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:h2:tcp://db:1521/zeebe-monitor
@@ -27,8 +27,7 @@ services:
       - "26500:26500"
       - "9600:9600"
     volumes:
-      - ../lib/zeebe-simple-monitor-exporter-0.14.0.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar
-      - ../lib/zeebe-hazelcast-exporter-0.4.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-hazelcast-exporter.jar
+      - ../lib/zeebe-hazelcast-exporter-0.5.0.jar:/usr/local/zeebe/lib/zeebe-hazelcast-exporter.jar
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
@@ -36,7 +35,7 @@ services:
       - db
   monitor:
     container_name: zeebe_monitor
-    image: camunda/zeebe-simple-monitor:latest
+    image: camunda/zeebe-simple-monitor:0.15.0
     environment:
       - spring.datasource.url=jdbc:h2:tcp://db:1521/zeebe-monitor
       - io.zeebe.monitor.connectionString=zeebe:26500
