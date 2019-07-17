@@ -310,86 +310,10 @@
 #  workflowInstanceSubscription = false
 
 [[exporters]]
-id = "simple-monitor"
-className = "io.zeebe.monitor.SimpleMonitorExporter"
-
-[[exporters]]
 id = "hazelcast"
 className = "io.zeebe.hazelcast.exporter.HazelcastExporter"
 
-[exporters.args.index]
-prefix = "zeebe-record"
-createTemplate = true
-
-command = false
-event = true
-rejection = false
-
-deployment = true
-incident = true
-job = true
-message = false
-messageSubscription = false
-raft = false
-workflowInstance = true
-workflowInstanceSubscription = false
-
-[exporters.args]
-  jdbcUrl = "jdbc:h2:tcp://db:1521/zeebe-monitor"
-
-  # The driver name of the jdbc driver implementation. Make sure that the implementation is
-  # available in the exporter/broker classpath (add it to the broker lib folder).
-  # The name is used to load the driver implementation like this
-  # Class.forName(configuration.driverName);
-  #
-  driverName = "org.h2.Driver"
-  userName = "sa"
-  password = ""
-
-  # The driver name of the jdbc driver implementation. Make sure that the implementation is
-  # available in the exporter/broker classpath (add it to the broker lib folder).
-  # The name is used to load the driver implementation like this
-  # Class.forName(configuration.driverName);
-  #
-  # driverName = "org.h2.Driver"
-  # userName = "sa"
-  # password = ""
-
-  # To configure the amount of records, which has to be reached before the records are exported to
-  # the database. Only counts the records which are in the end actually exported.
-  #
-  # batchSize = 100;
-
-  # To configure the time in milliseconds, when the batch should be executed regardless whether the
-  # batch size was reached or not.
-  #
-  #If the value is less then one, then no timer will be scheduled.
-  #
-  #batchTimerMilli = 1000
-
-#id = "elasticsearch"
-#className = "io.zeebe.exporter.ElasticsearchExporter"
-#
-#  [exporters.args]
-#  url = "http://localhost:9200"
-#
-#  [exporters.args.bulk]
-#  delay = 5
-#  size = 1_000
-#
-#  [exporters.args.index]
-#  prefix = "zeebe-record"
-#  createTemplate = true
-#
-#  command = false
-#  event = true
-#  rejection = false
-#
-#  deployment = true
-#  incident = true
-#  job = true
-#  message = false
-#  messageSubscription = false
-#  raft = false
-#  workflowInstance = true
-#  workflowInstanceSubscription = false
+  [exporters.args]
+  # comma separated list of io.zeebe.protocol.record.ValueType
+  enabledValueTypes = "JOB,WORKFLOW_INSTANCE,DEPLOYMENT,INCIDENT,TIMER,VARIABLE,MESSAGE,MESSAGE_SUBSCRIPTION,MESSAGE_START_EVENT_SUBSCRIPTION"
+  updatePosition = true
