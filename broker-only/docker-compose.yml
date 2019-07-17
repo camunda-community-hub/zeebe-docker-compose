@@ -4,8 +4,9 @@ services:
   zeebe:
     restart: always
     container_name: zeebe_broker
-    image: camunda/zeebe:0.18.0
+    image: camunda/zeebe:SNAPSHOT
     environment:
       - ZEEBE_LOG_LEVEL=debug
     ports:
       - "26500:26500"
+      - "9600:9600"

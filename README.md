@@ -18,7 +18,7 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 
 ## Versions
 
-* Zeebe 0.18
+* Zeebe 0.19
 * Operate 1.0.0-alpha11
 * Simple Monitor 0.14.0-SNAPSHOT
 
@@ -117,11 +117,11 @@ docker-compose down -v
 
 The `zbctl` binary is included to allow you to interact with the running broker. The binary is named:
 
-| Operating System |   zbctl binary   | 
+| Operating System |   zbctl binary   |
 |:----------------:|:----------------:|
-|       Linux      | bin/zbctl        | 
+|       Linux      | bin/zbctl        |
 |       OS X       | bin/zbctl.darwin |
-|      Windows     | bin/zbctl.exe    | 
+|      Windows     | bin/zbctl.exe    |
 
 
 ```bash
