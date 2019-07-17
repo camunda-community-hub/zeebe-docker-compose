@@ -7,7 +7,7 @@ networks:
 services:
   gateway:
     container_name: gateway
-    image: camunda/zeebe:0.18.0
+    image: camunda/zeebe:0.20.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_STANDALONE_GATEWAY=true
@@ -17,12 +17,12 @@ services:
     ports:
       - "26500:26500"
     volumes:
-      - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
+      - ./gateway.cfg.toml:/usr/local/zeebe/conf/gateway.cfg.toml
     networks:
       - zeebe_network
   node0:
     container_name: zeebe_broker_1
-    image: camunda/zeebe:0.18.0
+    image: camunda/zeebe:0.20.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_NODE_ID=0
@@ -38,7 +38,7 @@ services:
       - zeebe_network
   node1:
     container_name: zeebe_broker_2
-    image: camunda/zeebe:0.18.0
+    image: camunda/zeebe:0.20.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_NODE_ID=1
@@ -54,7 +54,7 @@ services:
       - node0
   node2:
     container_name: zeebe_broker_3
-    image: camunda/zeebe:0.18.0
+    image: camunda/zeebe:0.20.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_NODE_ID=2

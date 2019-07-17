@@ -335,24 +335,11 @@ url = "http://elasticsearch:9200"
  workflowInstance = true
  workflowInstanceSubscription = false
 
-
-[[exporters]]
-id = "simple-monitor"
-className = "io.zeebe.monitor.SimpleMonitorExporter"
-
 [[exporters]]
 id = "hazelcast"
 className = "io.zeebe.hazelcast.exporter.HazelcastExporter"
 
-[exporters.args]
-  jdbcUrl = "jdbc:h2:tcp://db:1521/zeebe-monitor"
-
-  # The driver name of the jdbc driver implementation. Make sure that the implementation is
-  # available in the exporter/broker classpath (add it to the broker lib folder).
-  # The name is used to load the driver implementation like this
-  # Class.forName(configuration.driverName);
-  #
-  driverName = "org.h2.Driver"
-  userName = "sa"
-  password = ""
-
+  [exporters.args]
+  # comma separated list of io.zeebe.protocol.record.ValueType
+  enabledValueTypes = "JOB,WORKFLOW_INSTANCE,DEPLOYMENT,INCIDENT,TIMER,VARIABLE,MESSAGE,MESSAGE_SUBSCRIPTION,MESSAGE_START_EVENT_SUBSCRIPTION"
+  updatePosition = true
