@@ -18,9 +18,9 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 
 ## Versions
 
-* Zeebe 0.19
+* Zeebe 0.20
 * Operate 1.0.0-alpha11
-* Simple Monitor 0.14.0-SNAPSHOT
+* Simple Monitor 0.15.0
 
 # Profiles
 
