@@ -157,7 +157,7 @@ The `operate-simple-monitor` folder contains a docker-compose file that will sta
 
 ## Error messages during Simple Monitor startup
 
-During the startup of Simple Monitor, you may see error messages in the logs. This is caused by a race condition where the Simple Moniter starts before the exporter has created the database tables that it needs to run. You can ignore these error messages and the container will automatically restart until the needed database tables are created.
+During the startup of Simple Monitor, you may see error messages in the logs. This is caused by a race condition where the Simple Monitor starts before the exporter has created the database tables that it needs to run. You can ignore these error messages and the container will automatically restart until the needed database tables are created.
 
 ## Issues Running on Windows
 
