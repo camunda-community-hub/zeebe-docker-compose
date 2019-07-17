@@ -10,7 +10,7 @@ networks:
 
 services:
   db:
-    image: oscarfonts/h2
+    image: oscarfonts/h2:1.4.197
     container_name: zeebe_db
     ports:
       - "1521:1521"
