@@ -50,7 +50,7 @@ services:
       - zeebe_network
   operate:
     container_name: operate
-    image: camunda/operate:1.0.0-alpha11
+    image: camunda/operate:1.0.0
     ports:
     - "8080:8080"
     volumes:
