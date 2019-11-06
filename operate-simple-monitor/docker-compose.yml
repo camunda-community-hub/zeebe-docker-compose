@@ -19,7 +19,7 @@ services:
       - zeebe_network
   zeebe:
     container_name: zeebe_broker
-    image: camunda/zeebe:0.20.0
+    image: camunda/zeebe:0.21.1
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:h2:tcp://db:1521/zeebe-monitor
@@ -50,7 +50,7 @@ services:
       - zeebe_network
   operate:
     container_name: operate
-    image: camunda/operate:1.0.0
+    image: camunda/operate:1.1.0
     ports:
     - "8080:8080"
     volumes:

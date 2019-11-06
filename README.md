@@ -18,8 +18,8 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 
 ## Versions
 
-* Zeebe 0.20
-* Operate 1.0.0-alpha11
+* Zeebe 0.21.1
+* Operate 1.1.0
 * Simple Monitor 0.15.0
 
 # Profiles
@@ -42,8 +42,8 @@ The containers expose the following services:
 
 - Zeebe broker - port 26500
 - Operate - web interface http://localhost:8080 (login: demo/demo)
-- ElasticSearch - port https://localhost:9200
-- Kibana - port https://localhost:5601
+- ElasticSearch - port http://localhost:9200
+- Kibana - port http://localhost:5601
 - Simple Monitor - web interface http://localhost:8082
 
 ## Prerequisites
