@@ -4,10 +4,10 @@ networks:
   zeebe_network:
     driver: bridge
 
-services:  
+services:
   zeebe:
     container_name: zeebe_broker
-    image: camunda/zeebe:0.21.1
+    image: camunda/zeebe:0.22.1
     environment:
       - ZEEBE_LOG_LEVEL=debug
     ports:
@@ -21,7 +21,7 @@ services:
       - zeebe_network
   monitor:
     container_name: zeebe_monitor
-    image: camunda/zeebe-simple-monitor:0.16.0
+    image: camunda/zeebe-simple-monitor:0.17.0
     environment:
       - io.zeebe.monitor.connectionString=zeebe:26500
       - io.zeebe.monitor.hazelcast.connection=zeebe:5701
@@ -32,6 +32,3 @@ services:
     restart: always
     networks:
       - zeebe_network
-
-
-
