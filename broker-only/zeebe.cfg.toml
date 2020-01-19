@@ -146,7 +146,7 @@
 
 # The maximum number of snapshots kept (must be a positive integer). When this
 # limit is passed the oldest snapshot is deleted.
-# maxSnapshots = "1"
+maxSnapshots = "0"
 #
 # How often follower partitions will check for new snapshots to replicate from
 # the leader partitions. Snapshot replication enables faster failover by
@@ -309,6 +309,28 @@
 #  workflowInstance = true
 #  workflowInstanceSubscription = false
 
-[[exporters]]
-id = "eventstore"
-className = "io.zeebe.EventStoreExporter"
+# [[exporters]]
+# id = "elasticsearch"
+# className = "io.zeebe.exporter.ElasticsearchExporter"
+# [exporters.args]
+# url = "http://elasticsearch:9200"
+# [exporters.args.bulk]
+#  delay = 5
+#  size = 1_000
+
+#  [exporters.args.index]
+#  prefix = "zeebe-record"
+#  createTemplate = true
+
+#  command = false
+#  event = true
+#  rejection = false
+
+#  deployment = true
+#  incident = true
+#  job = true
+#  message = false
+#  messageSubscription = false
+#  raft = false
+#  workflowInstance = true
+#  workflowInstanceSubscription = false

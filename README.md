@@ -18,18 +18,18 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 
 ## Versions
 
-* Zeebe 0.21.1
-* Operate 1.1.0
-* Simple Monitor 0.16.0
+* Zeebe 0.22.1
+* Operate 1.2.0
+* Simple Monitor 0.17.0
 
 # Profiles
 
 * [`broker-only`](broker-only/docker-compose.yml) - a single node Zeebe broker
 * [`cluster`](cluster/docker-compose.yml) - a three-node cluster configuration
-* [`exporter-demo`](exporter-demo/docker-compose.yml) - demonstrating a simple exporter. See [zeebe-exporter-demo](https://github.com/jwulf/zeebe-exporter-demo)
 * [`operate`](operate/docker-compose.yml) - a single node Zeebe broker with Operate
 * [`operate-simple-monitor`](operate-simple-monitor/docker-compose.yml) - a single node Zeebe broker with Operate and Simple Monitor
 * [`simple-monitor`](simple-monitor/docker-compose.yml) -  a single node Zeebe broker with Simple Monitor
+* [`standalone-gateway`](standalone-gateway/docker-compose.yml) - a three-node cluster with a standalone gateway
 
 # Utilities
 
