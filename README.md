@@ -33,7 +33,7 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 
 # Utilities
 
-* [`bin/zbctl*`](bin) - cli binary to interact with the broker
+* [`bin/zbctl*`](bin) - cli binary to interact with the broker. **Note**: use the `--insecure` flag, as these docker-compose configurations do not have TLS enabled.
 * [`bpmn/diagram_1.bpmn`](bpmn) - example diagram to deploy to the broker
 
 ## Services / Ports
