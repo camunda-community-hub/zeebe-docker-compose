@@ -46,7 +46,7 @@ services:
       - zeebe_network
   elasticsearch:
     container_name: elasticsearch
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.7.1
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.8
     ports:
       - "9200:9200"
     environment:
@@ -59,7 +59,7 @@ services:
       - zeebe_network
   kibana:
     container_name: kibana
-    image: docker.elastic.co/kibana/kibana-oss:6.7.1
+    image: docker.elastic.co/kibana/kibana-oss:6.8.8
     ports:
       - "5601:5601"
     networks:
