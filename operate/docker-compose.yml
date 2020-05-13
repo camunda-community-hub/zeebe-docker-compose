@@ -9,7 +9,7 @@ volumes:
 
 services:
   zeebe:
-    image: camunda/zeebe:0.22.1
+    image: camunda/zeebe:0.23.1
     #    environment:
     #      - ZEEBE_LOG_LEVEL=debug
     ports:
@@ -17,13 +17,13 @@ services:
       - "9600:9600"
     volumes:
       - zeebe_data:/usr/local/zeebe/data
-      - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
+      - ./zeebe.cfg.yaml:/usr/local/zeebe/config/application.yaml
     depends_on:
       - elasticsearch
     networks:
       - zeebe_network
   operate:
-    image: camunda/operate:1.2.0
+    image: camunda/operate:0.23.0
     ports:
       - "8080:8080"
     volumes:
