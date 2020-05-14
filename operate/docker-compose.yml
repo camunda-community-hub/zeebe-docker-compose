@@ -9,23 +9,26 @@ volumes:
 
 services:
   zeebe:
-    image: camunda/zeebe:0.22.1
-    #    environment:
-    #      - ZEEBE_LOG_LEVEL=debug
+    image: camunda/zeebe:0.23.1
+    environment:
+      - ZEEBE_LOG_LEVEL=debug
     ports:
       - "26500:26500"
       - "9600:9600"
     volumes:
       - zeebe_data:/usr/local/zeebe/data
-      - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
+      - ./application.yaml:/usr/local/zeebe/config/application.yaml
     depends_on:
       - elasticsearch
     networks:
       - zeebe_network
   operate:
-    image: camunda/operate:1.2.0
+    image: camunda/operate:0.23.0
     ports:
       - "8080:8080"
+    depends_on:
+      - zeebe
+      - elasticsearch
     volumes:
       - ../lib/application.yml:/usr/local/operate/config/application.yml
     networks:
@@ -40,11 +43,5 @@ services:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     volumes:
       - zeebe_elasticsearch_data:/usr/share/elasticsearch/data
-    networks:
-      - zeebe_network
-  kibana:
-    image: docker.elastic.co/kibana/kibana-oss:6.7.1
-    ports:
-      - "5601:5601"
     networks:
       - zeebe_network
