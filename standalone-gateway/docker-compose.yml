@@ -6,23 +6,24 @@ networks:
 
 services:
   gateway:
+    restart: always
     container_name: gateway
-    image: camunda/zeebe:0.22.1
+    image: camunda/zeebe:0.23.1
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_STANDALONE_GATEWAY=true
-      - ZEEBE_GATEWAY_CONTACT_POINT=node0:26502
+      - ZEEBE_GATEWAY_NETWORK_HOST=0.0.0.0
+      - ZEEBE_GATEWAY_NETWORK_PORT=26500
+      - ZEEBE_GATEWAY_CLUSTER_CONTACTPOINT=node0:26502
       - ZEEBE_GATEWAY_CLUSTER_PORT=26502
       - ZEEBE_GATEWAY_CLUSTER_HOST=gateway
     ports:
       - "26500:26500"
-    volumes:
-      - ./gateway.cfg.toml:/usr/local/zeebe/conf/gateway.cfg.toml
     networks:
       - zeebe_network
   node0:
     container_name: zeebe_broker_1
-    image: camunda/zeebe:0.22.1
+    image: camunda/zeebe:0.23.1
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_NODE_ID=0
@@ -30,15 +31,11 @@ services:
       - ZEEBE_REPLICATION_FACTOR=3
       - ZEEBE_CLUSTER_SIZE=3
       - ZEEBE_CONTACT_POINTS=node0:26502
-    ports:
-      - "26600:26500"
-    volumes:
-      - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
   node1:
     container_name: zeebe_broker_2
-    image: camunda/zeebe:0.22.1
+    image: camunda/zeebe:0.23.1
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_NODE_ID=1
@@ -46,15 +43,13 @@ services:
       - ZEEBE_REPLICATION_FACTOR=3
       - ZEEBE_CLUSTER_SIZE=3
       - ZEEBE_CONTACT_POINTS=node0:26502
-    volumes:
-      - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
     depends_on:
       - node0
   node2:
     container_name: zeebe_broker_3
-    image: camunda/zeebe:0.22.1
+    image: camunda/zeebe:0.23.1
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_NODE_ID=2
@@ -62,8 +57,6 @@ services:
       - ZEEBE_REPLICATION_FACTOR=3
       - ZEEBE_CLUSTER_SIZE=3
       - ZEEBE_CONTACT_POINTS=node0:26502
-    volumes:
-      - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
     depends_on:
