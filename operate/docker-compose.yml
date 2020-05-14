@@ -26,6 +26,9 @@ services:
     image: camunda/operate:0.23.0
     ports:
       - "8080:8080"
+    depends_on:
+      - zeebe
+      - elasticsearch
     volumes:
       - ../lib/application.yml:/usr/local/operate/config/application.yml
     networks:
