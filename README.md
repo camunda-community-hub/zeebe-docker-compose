@@ -161,7 +161,7 @@ During the startup of Simple Monitor, you may see error messages in the logs. Th
 
 ## Error messages during Operate startup
 
-During the startup of Operate, you may see error messages in the logs regarding failed connection attempts to elasticsearch. This is caused by a race condition where Operate starts before elastic search has completed its bootstrap process. Restarting the operate container should resolve the issue.
+During the startup of Operate, you may see error messages in the logs regarding failed connection attempts to ElasticSearch. This is caused by a race condition where Operate starts before ElasticSearch has completed its bootstrap process. Restarting the operate container should resolve the issue.
 ```
 # Example for the operate-simple-monitor profile
 docker restart operate
