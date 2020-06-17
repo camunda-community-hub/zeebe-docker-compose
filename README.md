@@ -159,6 +159,16 @@ The `operate-simple-monitor` folder contains a docker-compose file that will sta
 
 During the startup of Simple Monitor, you may see error messages in the logs. This is caused by a race condition where the Simple Monitor starts before the exporter has created the database tables that it needs to run. You can ignore these error messages and the container will automatically restart until the needed database tables are created.
 
+## Error messages during Operate startup
+
+During the startup of Operate, you may see error messages in the logs regarding failed connection attempts to elasticsearch. This is caused by a race condition where Operate starts before elastic search has completed its bootstrap process. Restarting the operate container should resolve the issue.
+```
+# Example for the operate-simple-monitor profile
+docker restart operate
+```
+
+
+
 ## Issues Running on Windows
 
 Windows can have issues mounting files into Linux containers, especially if you run these configurations from a location outside your home directory.
