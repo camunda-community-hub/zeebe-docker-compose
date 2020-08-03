@@ -11,7 +11,7 @@ networks:
 services:
   zeebe:
     container_name: zeebe
-    image: camunda/zeebe:0.23.1
+    image: camunda/zeebe:0.24.1
     environment:
       - ZEEBE_LOG_LEVEL=debug
     ports:
@@ -26,7 +26,7 @@ services:
   monitor:
     container_name: zeebe_monitor
     restart: always
-    image: camunda/zeebe-simple-monitor:0.18.0
+    image: camunda/zeebe-simple-monitor:0.19.0
     environment:
       - zeebe.client.broker.contactPoint=zeebe:26500
       - zeebe.worker.hazelcast.connection=zeebe:5701
@@ -38,7 +38,7 @@ services:
       - zeebe_network
   operate:
     container_name: operate
-    image: camunda/operate:0.23.0
+    image: camunda/operate:0.24.2
     ports:
       - "8080:8080"
     volumes:

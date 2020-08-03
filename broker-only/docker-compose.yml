@@ -4,7 +4,7 @@ services:
   zeebe:
     restart: always
     container_name: zeebe_broker
-    image: camunda/zeebe:0.23.1
+    image: camunda/zeebe:0.24.1
     environment:
       - ZEEBE_LOG_LEVEL=debug
     volumes:
