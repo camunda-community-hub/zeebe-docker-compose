@@ -7,7 +7,7 @@ networks:
 services:
   zeebe:
     container_name: zeebe_broker
-    image: camunda/zeebe:0.23.1
+    image: camunda/zeebe:0.24.1
     environment:
       - ZEEBE_LOG_LEVEL=info
     ports:
@@ -21,7 +21,7 @@ services:
       - zeebe_network
   monitor:
     container_name: zeebe_monitor
-    image: camunda/zeebe-simple-monitor:0.18.0
+    image: camunda/zeebe-simple-monitor:0.19.0
     environment:
       - zeebe.client.broker.contactPoint=zeebe:26500
       - zeebe.worker.hazelcast.connection=zeebe:5701
