@@ -1,8 +1,7 @@
 # Zeebe + Operate in Docker
 
 This repository contains configuration files to setup an environment to
-develop with [Zeebe]. It is the recommend way for developing and is maintained
-by the Zeebe team itself.
+develop with [Zeebe].
 
 The configurations manage the following Zeebe components:
 
