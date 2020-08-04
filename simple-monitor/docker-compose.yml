@@ -24,7 +24,7 @@ services:
     image: camunda/zeebe-simple-monitor:0.19.0
     environment:
       - zeebe.client.broker.contactPoint=zeebe:26500
-      - zeebe.worker.hazelcast.connection=zeebe:5701
+      - zeebe.client.worker.hazelcast.connection=zeebe:5701
     # volumes:
     #   - ./simple-monitor-application.yaml:/usr/local/zeebe/config/application.yaml
     ports:
