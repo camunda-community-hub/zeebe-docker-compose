@@ -20,6 +20,7 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 * Zeebe 0.24.1
 * Operate 0.24.2
 * Simple Monitor 0.19.0
+* ZeeQS latest
 
 # Profiles
 
@@ -29,6 +30,7 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 * [`operate-simple-monitor`](operate-simple-monitor/docker-compose.yml) - a single node Zeebe broker with Operate and Simple Monitor
 * [`simple-monitor`](simple-monitor/docker-compose.yml) -  a single node Zeebe broker with Simple Monitor
 * [`standalone-gateway`](standalone-gateway/docker-compose.yml) - a three-node cluster with a standalone gateway
+* [`zeeqs`](zeeqs/docker-compose.yml) - a single broker with the ZeeQS query API
 
 # Utilities
 
