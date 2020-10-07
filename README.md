@@ -11,7 +11,7 @@ The configurations manage the following Zeebe components:
 
 - [Simple Monitor](https://github.com/zeebe-io/zeebe-simple-monitor) is a **community maintained** monitoring tool for development purpose. This should **not** be used in production as it has a performance impact on the broker.
 
-For more information on using Zeebe and Operate, consult the Quickstart Guide in the [Zeebe docs](https://docs.zeebe.io/getting-started/README.html).
+For more information on using Zeebe and Operate, consult the Quickstart Guide in the [Zeebe docs](https://docs.zeebe.io/introduction/quickstart.html).
 
 The `docker-compose.yml` files in this repository can be used to start a single Zeebe broker; optionally with Simple Monitor, or with Operate, along with the Elasticsearch and Kibana containers that Operate needs.
 
