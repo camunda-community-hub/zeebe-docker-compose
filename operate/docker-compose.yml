@@ -9,7 +9,7 @@ volumes:
 
 services:
   zeebe:
-    image: camunda/zeebe:0.24.1
+    image: camunda/zeebe:0.25.1
     environment:
       - ZEEBE_LOG_LEVEL=debug
     ports:
@@ -23,7 +23,7 @@ services:
     networks:
       - zeebe_network
   operate:
-    image: camunda/operate:0.24.2
+    image: camunda/operate:0.25.0
     ports:
       - "8080:8080"
     depends_on:
