@@ -49,7 +49,7 @@ services:
       - zeebe_network
   elasticsearch:
     container_name: elasticsearch
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.7.1
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
     ports:
       - "9200:9200"
     environment:
