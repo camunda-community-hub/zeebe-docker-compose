@@ -248,7 +248,7 @@
 #   two exporters that point to the same JAR, with the same class or a different one, and use args
 #   to parametrize its instantiation.
 # className:
-#   entry point of the exporter, a class which *must* extend the io.zeebe.exporter.Exporter
+#   entry point of the exporter, a class which *must* extend the io.camunda.zeebe.exporter.Exporter
 #   interface.
 #
 # A nested table as [exporters.args] will allow you to inject arbitrary arguments into your
@@ -279,7 +279,7 @@
 #
 #[[exporters]]
 #id = "elasticsearch"
-#className = "io.zeebe.exporter.ElasticsearchExporter"
+#className = "io.camunda.zeebe.exporter.ElasticsearchExporter"
 #
 #  [exporters.args]
 #  url = "http://localhost:9200"
