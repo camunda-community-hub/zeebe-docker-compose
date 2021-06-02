@@ -21,7 +21,7 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 * Operate 1.0.0
 * Simple Monitor 1.0.0
 * ZeeQS latest
-* Zeebe Hazelcast exporter 0.10.0
+* Zeebe Hazelcast exporter 1.0.0
 
 # Profiles
 
