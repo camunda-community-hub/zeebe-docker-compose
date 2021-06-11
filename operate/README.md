@@ -18,7 +18,7 @@ The components that will be started with this profile:
 * Clone this repository:
 
 ```bash
-git clone https://github.com/zeebe-io/zeebe-docker-compose
+git clone https://github.com/camunda-community-hub/zeebe-docker-compose.git
 ```
 
 ## Start the containers
