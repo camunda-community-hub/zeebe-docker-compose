@@ -7,7 +7,7 @@ networks:
 services:
   node0:
     container_name: zeebe_broker_1
-    image: camunda/zeebe:1.0.0
+    image: camunda/zeebe:1.1.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_BROKER_CLUSTER_NODEID=0
@@ -17,13 +17,11 @@ services:
       - ZEEBE_BROKER_CLUSTER_INITIALCONTACTPOINTS=node0:26502
     ports:
       - "26500:26500"
-    # volumes:
-    #   - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
   node1:
     container_name: zeebe_broker_2
-    image: camunda/zeebe:1.0.0
+    image: camunda/zeebe:1.1.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_BROKER_CLUSTER_NODEID=1
@@ -31,15 +29,13 @@ services:
       - ZEEBE_BROKER_CLUSTER_REPLICATIONFACTOR=3
       - ZEEBE_BROKER_CLUSTER_CLUSTERSIZE=3
       - ZEEBE_BROKER_CLUSTER_INITIALCONTACTPOINTS=node0:26502
-    # volumes:
-    #   - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
     depends_on:
       - node0
   node2:
     container_name: zeebe_broker_3
-    image: camunda/zeebe:1.0.0
+    image: camunda/zeebe:1.1.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
       - ZEEBE_BROKER_CLUSTER_NODEID=2
@@ -47,8 +43,6 @@ services:
       - ZEEBE_BROKER_CLUSTER_REPLICATIONFACTOR=3
       - ZEEBE_BROKER_CLUSTER_CLUSTERSIZE=3
       - ZEEBE_BROKER_CLUSTER_INITIALCONTACTPOINTS=node0:26502
-    # volumes:
-    #   - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml
     networks:
       - zeebe_network
     depends_on:
