@@ -17,9 +17,9 @@ The `docker-compose.yml` files in this repository can be used to start a single 
 
 ## Versions
 
-* Zeebe 1.0.0
-* Operate 1.0.0
-* Simple Monitor 1.0.0
+* Zeebe 1.1.0
+* Operate 1.1.0
+* Simple Monitor 2.0.0
 * ZeeQS latest
 * Zeebe Hazelcast exporter 1.0.0
 
@@ -178,7 +178,7 @@ Windows can have issues mounting files into Linux containers, especially if you 
 You may see messages when starting, containing error messages similar to this:
 
 ```
-\\\"/mnt/sda1/var/lib/docker/overlay2/039...7/merged/usr/local/zeebe/conf/zeebe.cfg.toml\\\"
+\\\"/mnt/sda1/var/lib/docker/overlay2/039...7/merged/usr/local/zeebe/conf/application.yaml\\\"
 caused \\\"not a directory\\\"\"": unknown:
 Are you trying to mount a directory onto a file (or vice-versa)?
 Check if the specified host path exists and is the expected type'

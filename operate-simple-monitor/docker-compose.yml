@@ -25,6 +25,7 @@ services:
       - zeebe_network
   monitor:
     container_name: zeebe_monitor
+    restart: always
     image: ghcr.io/camunda-community-hub/zeebe-simple-monitor:2.0.0
     environment:
       - zeebe.client.broker.contactPoint=zeebe:26500
@@ -39,7 +40,7 @@ services:
       - zeebe_network
   operate:
     container_name: operate
-    image: camunda/operate:1.0.0
+    image: camunda/operate:1.1.0
     ports:
       - "8080:8080"
     volumes:
