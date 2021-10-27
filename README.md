@@ -1,3 +1,5 @@
+**Important note:** The docker compose configuration here are provided as community extensions without any gurantees. Especially, they might not always be up-to-date in regards to versions. If you don't have specific requirements, we recommend to simply use the default docker compose file provided in the get started repository: [https://github.com/camunda-cloud/camunda-cloud-get-started/blob/master/docker-compose.yaml](https://github.com/camunda-cloud/camunda-cloud-get-started/blob/master/docker-compose.yaml)
+
 # Zeebe + Operate in Docker
 
 This repository contains configuration files to setup an environment to
