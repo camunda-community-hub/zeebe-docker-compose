@@ -1,6 +1,10 @@
 [![Community Extension](https://img.shields.io/badge/Community%20Extension-An%20open%20source%20community%20maintained%20project-FF4700)](https://github.com/camunda-community-hub/community) [![Lifecycle: Proof of Concept](https://img.shields.io/badge/Lifecycle-Proof%20of%20Concept-blueviolet)](https://github.com/Camunda-Community-Hub/community/blob/main/extension-lifecycle.md#proof-of-concept-)
 
-**Important note:** The docker compose configuration here are provided as **community extensions without any gurantees**. Especially, they might **not be up-to-date** in regards to versions. If you don't have specific requirements, we **recommend to use the default docker compose file provided in [the get started repository (https://github.com/camunda-cloud/camunda-cloud-get-started/blob/master/docker-compose.yaml)](https://github.com/camunda-cloud/camunda-cloud-get-started/blob/master/docker-compose.yaml)** instead.
+# DEPRECATED!
+
+**Important note:** The docker compose configuration files here are deprecated. Please use **the default docker compose file provided in [the get started repository (https://github.com/camunda-cloud/camunda-cloud-get-started/blob/master/docker-compose.yaml)](https://github.com/camunda-cloud/camunda-cloud-get-started/blob/master/docker-compose.yaml)** instead.
+
+
 
 # Zeebe + Operate in Docker
 
